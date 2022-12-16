@@ -95,18 +95,6 @@ h6 {
 
 /* General styles */
 body {
-  --bg-pos-y-t: 500px;
-  --bg-pos-x-t: 170px;
-  
-  --bg-pos-y-b: 300px;
-  --bg-pos-x-b: 180px;
-  
-  --bg-size-x-t: 100%;
-  --bg-size-y-t: 90%;
-  
-  --bg-size-x-b: 200%;
-  --bg-size-y-b: 100%;
-
   display: grid;
   place-content: center;
   min-height: 100vh;
@@ -114,9 +102,7 @@ body {
   font: var(--fw-regular) var(--fs-base) var(--ff-base);
   color: var(--main-text);
   background-color: var(--main-bg);
-  background: no-repeat top calc(100% - var(--bg-pos-y-t)) left calc(100% - var(--bg-pos-x-t))/var(--bg-size-x-t) var(--bg-size-y-t) url("./images/bg-pattern-top.svg") ,
-  no-repeat bottom calc(100% - var(--bg-pos-y-b)) right calc(100% - var(--bg-pos-x-b))/var(--bg-size-x-b) var(--bg-size-y-b) url("./images/bg-pattern-bottom.svg"),
-  var(--main-bg);
+  overflow: hidden;
 }
 
 a {
@@ -222,35 +208,27 @@ ul {
   color: hsl(228, 45%, 44%);
 }
 
-/* Responsive */
-@media screen and (min-width: 540px) {
-  body {
-  --bg-pos-y-t: 500px;
-  --bg-pos-x-t: 200px;
-  
-  --bg-pos-y-b: 500px;
-  --bg-pos-x-b: 250px;
-
-  --bg-size-x-t: 100%;
-  --bg-size-y-t: 80%;
-  
-  --bg-size-x-b: 100%;
-  --bg-size-y-b: 100%;
-  }
+/* Background pattern */
+/* Code from 
+  https://github.com/irfanhfzh/irfanhfzh.github.io/tree/master/frontend-mentor/challenges/newbie/profile-card-component-main 
+*/
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1rem 2rem 1fr;
+    grid-template-rows: 1fr .2fr .7fr;
+  z-index: -1;
 }
 
-@media screen and (min-width: 1200px) {
-  body {
-    --bg-pos-y-t: 400px;
-    --bg-pos-x-t: 700px;
-  
-    --bg-pos-y-b: 480px;
-    --bg-pos-x-b: 660px;
-  
-    --bg-size-x-t: 40%;
-    --bg-size-y-t: 110%;
-    
-    --bg-size-x-b: 60%;
-    --bg-size-y-b: 100%;
-  }
+.bg-pattern::before {
+  content: "";
+  grid-area: 1 / 1 / 3 / 2;
+  background: no-repeat right bottom url(images/bg-pattern-top.svg);
+}
+
+.bg-pattern::after {
+  content: "";
+  grid-area: 2 / 2 / 4 / 5;
+  background: no-repeat left top url(images/bg-pattern-bottom.svg);
 }
