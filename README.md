@@ -24,7 +24,7 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 ### Links
 
 - Repository URL: [Github](https://github.com/EudesSerpa/FM-profile-card).
-- Live Site URL: [See demo](https://your-live-site-url.com).
+- Live Site URL: [See demo](https://fm-profile-card-sc.netlify.app/).
 
 ## My process
 
